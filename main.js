@@ -20,20 +20,27 @@ function Bullet(){
     this.init =function(){
         this.x = spaceshipX+16.3;
         this.y = spaceshipY;
+      
         this.alive = true // true 살아있는 총알 false 쓰인총알
         bulletList.push(this);
     }
     this.update =function(){
+       
         this.y -= 7;
     }
     this.checkHit =function(){
+        
+
         for(let i=0;i<enemyList.length;i++){
-            if(this.y <=enemyList[i].y && this.x >= enemyList[i].x && this.x<=enemyList[i].x+48){
+          
+            if(this.y>0 &&  this.y <=enemyList[i].y && this.x >= enemyList[i].x && this.x<=enemyList[i].x+48){
                 score++;
                 this.alive =false //죽은 총알   
                 enemyList.splice(i,1)
             }
-
+    
+          
+            
         }
         
     }
